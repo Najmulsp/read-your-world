@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Book = ({ book }) => {
-  const { image, bookName, author, rating, tags, category } = book;
+  const { image, bookName, author, rating, tags, category, bookId } = book;
   return (
     <div >
-      <div className="card w-96 bg-base-100 shadow-xl border ">
+        <Link to={`/book/${bookId}`}>
+      <div className="card mx-auto w-96 bg-base-100 shadow-xl border ">
         <figure className="px-10 pt-10">
           <img src={image}  alt="Book"  className="rounded-xl "/>
         </figure>
@@ -25,6 +27,7 @@ const Book = ({ book }) => {
           </div>
         </div>
       </div>
+      </Link>
     </div>
   );
 };
