@@ -1,15 +1,15 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-const WishlistBooks = ({book}) => {
-
-    const {image, bookName, author, tags, yearOfPublishing, publisher, category, rating} = book;
+const WishlistBooks = () => {
+   //{book}
+    // const {image, bookName, author, tags, yearOfPublishing, publisher, category, rating} = book;
     return (
-        <div className=" border border-fuchsia-700 rounded-xl m-10">
-  
+        <div className=" lg:w-3/4 rounded-2xl m-10">
+            <h2>mui acchong</h2>
           {/* this is card section  */}
-            <div className="hero  bg-base-200 ">
+            {/* <div className="hero  bg-base-200 ">
                 <div className="hero-content  flex-col lg:flex-row gap-16">
-                    <img src={book.image} className="max-w-sm rounded-lg shadow-2xl"          />
+                    <img src={book.image} className="max-w-sm rounded-lg shadow-2xl h-96"  />
                     <div>
                         <h1 className="text-5xl font-bold">{book.bookName}</h1>
                         <p className="py-6">By: {book.author} </p> 
@@ -58,7 +58,7 @@ const WishlistBooks = ({book}) => {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
     
 
         </div>
@@ -66,7 +66,7 @@ const WishlistBooks = ({book}) => {
 };
 
 
-WishlistBooks.propTypes = {
-    book: PropTypes.array,
-  };
+// WishlistBooks.propTypes = {
+//     book: PropTypes.array,
+//   };
 export default WishlistBooks;

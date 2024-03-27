@@ -15,6 +15,8 @@ import Register from './components/Register/Register';
 import Blog from './components/Blog/Blog';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import BookDetails from './components/BookDetails/BookDetails';
+import WishlistBooks from './components/WishlistBooks/WishlistBooks';
+import ReadBooks from './components/ReadBooks/ReadBooks';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,17 @@ const router = createBrowserRouter([
       {
         path: "/list",
         element: <ListedBooks></ListedBooks>,
-        loader: () => fetch('/Books.json')
+        loader: () => fetch('/Books.json'),
+        children: [
+          {
+            index: true,
+            element: <ReadBooks></ReadBooks>,
+          },
+          {
+            path: "wishlist",
+            element: <WishlistBooks></WishlistBooks>,
+          },
+        ],
       },
       {
         path: "/pages",

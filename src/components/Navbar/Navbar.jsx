@@ -12,32 +12,32 @@ const Navbar = () => {
             <li><NavLink
               to="/"
               className={({ isActive }) =>
-              isActive ? "border border-lime-600 rounded-lg text-lime-600 font-semibold py-2 px-4" : ""
+              isActive ? "border border-lime-600 rounded-lg text-lime-600 font-bold py-2 px-4" : ""
                 }
             >Home</NavLink></li>
 
             <li><NavLink
               to="/list"
               className={({ isActive }) =>
-              isActive ? "border border-lime-600 rounded-lg text-lime-600 py-2 px-4" : ""
+              isActive ? "border border-lime-600 rounded-lg text-lime-600 font-bold py-2 px-4" : ""
                 }
             >Listed Books</NavLink></li>
             <li><NavLink
               to="/pages"
               className={({ isActive }) =>
-              isActive ? "border border-lime-600 rounded-lg text-lime-600 py-2 px-4" : ""
+              isActive ? "border border-lime-600 rounded-lg text-lime-600 font-bold py-2 px-4" : ""
                 }
             >Pages to Read</NavLink></li>
             <li><NavLink
               to="/blog"
               className={({ isActive }) =>
-              isActive ? "border border-lime-600 rounded-lg text-lime-600 py-2 px-4" : ""
+              isActive ? "border border-lime-600 rounded-lg text-lime-600 font-bold py-2 px-4" : ""
                 }
             >Blog</NavLink></li>
             <li><NavLink
               to="/register"
               className={({ isActive }) =>
-              isActive ? "border border-lime-600 rounded-lg text-lime-600 py-2 px-4" : ""
+              isActive ? "border border-lime-600 rounded-lg text-lime-600 font-bold py-2 px-4" : ""
                 }
             >Register</NavLink></li>
     </>
