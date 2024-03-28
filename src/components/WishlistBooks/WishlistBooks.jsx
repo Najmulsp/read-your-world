@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 
 const WishlistBooks = ({book}) => {
-     const {image, bookName, author, tags, yearOfPublishing, publisher, category, rating} = book;
+     const {image, bookName, author, tags, yearOfPublishing, publisher, category, rating, totalPages} = book;
     
     return (
         <div className=" lg:w-3/4  m-10">
@@ -37,6 +37,7 @@ const WishlistBooks = ({book}) => {
                      <p>Publisher: {publisher}</p>
                     </div>
                 </div>
+                <p className="pt-4">Pages: {totalPages}</p>
               <span >
               
               </span>
@@ -60,6 +61,6 @@ const WishlistBooks = ({book}) => {
 };
 
  WishlistBooks.propTypes = {
-     book: PropTypes.array,
+     book: PropTypes.object,
   };
 export default WishlistBooks;

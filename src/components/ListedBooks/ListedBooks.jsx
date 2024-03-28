@@ -4,32 +4,36 @@ import { getStoredWishlistedBook } from "../../Utility/LocalStorage";
 import { getStoredReadBook } from "../../Utility/LocalStorage";
 import WishlistBooks from "../WishlistBooks/WishlistBooks";
 import ReadBooks from "../ReadBooks/ReadBooks";
-// import { Link } from "react-router-dom";
+
 
 const ListedBooks = () => {
   const books = useLoaderData();
+  const [shortRead, setShortRead] = useState([]);
+  const [shortWhishList, setShortWishList] = useState([]);
 
-  const [wishlistedBooks, setWishlistedBooks] = useState([]);
-  const [readBooks, setReadBooks] = useState([]);
-  // const [shortDiscending, setShortDiscending] = useState([]);
-  
+   const [wishlistedBooks, setWishlistedBooks] = useState([]);
+   const [readBooks, setReadBooks] = useState([]);
 
-  // const handleBooksFilter = (filter) => {
-  //   if (filter === "all") {
-  //     setShortDiscending(BooksWishlisted);
-  //   } else if (filter === "classic") {
-  //     const classicBooks = BooksWishlisted.filter(
-  //       (book) => book.category === "Classic"
-  //     );
-  //     setShortDiscending(classicBooks);
-  //   } else if (filter === "fiction") {
-  //     const fictionBooks = BooksWishlisted.filter(
-  //       (book) => book.category === "Fiction"
-  //     );
-  //     setShortDiscending(fictionBooks);
-  //   }
-  // };
+console.log(shortWhishList)
 
+    const handleRating = () =>{
+      const newReadList = shortRead.sort((a,b)=> a.rating>b.rating? -1 : 1);
+      const newWishList = shortWhishList.sort((a,b)=> a.rating>b.rating? -1 : 1);
+      
+      setShortRead(newReadList)
+      setShortWishList(newWishList)
+
+      console.log(newWishList)
+    }
+    const handlePages = () =>{
+      const newReadList = shortRead.sort((a,b)=> a.totalPages>b.totalPages? -1 : 1);
+      const newWishList = shortWhishList.sort((a,b)=> a.totalPages>b.totalPages? -1 : 1);
+      
+      setShortRead(newReadList)
+      setShortWishList(newWishList)
+
+      console.log(newWishList)
+    }
 
   
   // for wishList books
@@ -40,8 +44,9 @@ const ListedBooks = () => {
         storedBookIds.includes(book.bookId)
       );
       
-      setWishlistedBooks(BooksWishlisted);
-      // setShortDiscending(BooksWishlisted);
+       setWishlistedBooks(BooksWishlisted);
+      setShortWishList(BooksWishlisted);
+      
     }
   }, [books]);
 
@@ -54,15 +59,14 @@ const ListedBooks = () => {
       );
       
       setReadBooks(BooksReaded);
+      setShortRead(BooksReaded);
     }
   }, [books]);
 
   return (
     <div>
-      <h2 className="bg-red-50 py-6 rounded-xl text-4xl text-black font-bold text-center ">
-        Listed Books route: {wishlistedBooks.length}
-      </h2>
-      {/* <div className=" w-full text-center ">
+      <h2 className="bg-red-50 py-6 rounded-xl text-4xl text-black font-bold text-center "> Books </h2>
+       <div className=" w-full text-center ">
         <div className="dropdown ">
           <div
             tabIndex={0}
@@ -75,13 +79,11 @@ const ListedBooks = () => {
             tabIndex={0}
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li onClick={() => handleBooksFilter("all")}>
-              <a>Short By</a>
-            </li>
-            <li onClick={() => handleBooksFilter("classic")}>
+            
+            <li onClick={() => handleRating()}>
               <a>Rating</a>
             </li>
-            <li onClick={() => handleBooksFilter("fiction")}>
+            <li onClick={() => handlePages()}>
               <a>Number of Pages</a>
             </li>
             <li>
@@ -89,7 +91,7 @@ const ListedBooks = () => {
             </li>
           </ul>
         </div>
-      </div> */}
+      </div> 
 
       {/* tab from mamba ui  */}
       <div role="tablist" className="tabs tabs-lifted mt-10">
@@ -106,7 +108,7 @@ const ListedBooks = () => {
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
         >
           {/* for my books */}
-        {readBooks.map((book) => (
+        {shortRead.map((book) => (
         <ReadBooks key={book.bookId} book={book}></ReadBooks>
       ))}
         </div>
@@ -123,7 +125,7 @@ const ListedBooks = () => {
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
         >
-         {wishlistedBooks.map((book) => (
+         {shortWhishList.map((book) => (
         <WishlistBooks key={book.bookId} book={book}></WishlistBooks>
       ))}
         </div>

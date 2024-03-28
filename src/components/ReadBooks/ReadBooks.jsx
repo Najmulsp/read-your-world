@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const ReadBooks = ({book}) => {
   
-        const { yearOfPublishing, publisher, category, rating, tags, image, author, bookName}  = book;
+        const { yearOfPublishing, publisher, category, rating, tags, image, author, bookName, totalPages}  = book;
         
     
     
@@ -41,6 +41,7 @@ const ReadBooks = ({book}) => {
                      <p>Publisher: {publisher}</p>
                     </div>
                 </div>
+                     <p className="pt-4">Pages: {totalPages}</p>
               <span >
               
               </span>

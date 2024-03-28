@@ -8,7 +8,7 @@ const BookDetails = () => {
     const books = useLoaderData();
     const {bookId} = useParams();
     const integerbookId = parseInt(bookId);
-    const book = books.find(book => book.bookId == integerbookId)
+    const book = books?.find(book => book.bookId == integerbookId)
 
     const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating} =book;
 

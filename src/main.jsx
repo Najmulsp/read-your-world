@@ -13,8 +13,8 @@ import ListedBooks from './components/ListedBooks/ListedBooks';
 import PagesToRead from './components/PagesToRead/PagesToRead';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import BookDetails from './components/BookDetails/BookDetails';
-import WishlistBooks from './components/WishlistBooks/WishlistBooks';
-import ReadBooks from './components/ReadBooks/ReadBooks';
+// import WishlistBooks from './components/WishlistBooks/WishlistBooks';
+// import ReadBooks from './components/ReadBooks/ReadBooks';
 import Publish from './components/Publish/Publish';
 import Authors from './components/Authors/Authors';
 
@@ -31,24 +31,24 @@ const router = createBrowserRouter([
       {
         path: "/list",
         element: <ListedBooks></ListedBooks>,
-        loader: () => fetch('/Books.json'),
-        children: [
-          {
-            index: true,
-            element: <ReadBooks></ReadBooks>,
-            loader: () => fetch('/Books.json'),
-          },
-          {
-            path: "wishlist",
-            element: <WishlistBooks></WishlistBooks>,
-            loader: () => fetch('/Books.json'),
-          },
-        ],
+        loader: () => fetch(`./Books.json`),
+        // children: [
+        //   {
+        //     index: true,
+        //     element: <ReadBooks></ReadBooks>,
+        //     loader: () => fetch('/Books.json'),
+        //   },
+        //   {
+        //     path: "wishlist",
+        //     element: <WishlistBooks></WishlistBooks>,
+        //     loader: () => fetch('/Books.json'),
+        //   },
+        // ],
       },
       {
         path: "/pages",
         element: <PagesToRead></PagesToRead>,
-        loader: () => fetch('/Books.json'),
+        loader: () => fetch(`./Books.json`),
       },
       {
         path: "/publish",
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       {
         path: "/book/:bookId",
         element: <BookDetails></BookDetails>,
-        loader: () => fetch('../Books.json')
+        loader: () => fetch(`/Books.json`)
       },
     ],
   },
