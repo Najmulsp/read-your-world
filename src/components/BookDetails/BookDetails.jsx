@@ -15,12 +15,12 @@ const BookDetails = () => {
 
  const handleReadBook = () =>{
     saveReadBook(integerbookId)
-    toast("Books Added to Read List");
+    // toast("Books Added to Read List");
  }
 
  const handleWishlistBook = () =>{
     saveWishlistedBook(integerbookId);
-    toast("Books Added to Wish List");
+    // toast("Books Added to Wish List");
  }
 
 

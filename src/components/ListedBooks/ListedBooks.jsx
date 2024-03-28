@@ -8,7 +8,7 @@ const ListedBooks = () => {
   const books = useLoaderData();
 
   const [wishlistedBooks, setWishlistedBooks] = useState([]);
-  const [shortDiscending, setShortDiscending] = useState([]);
+  // const [shortDiscending, setShortDiscending] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
 
   const handleBooksFilter = (filter) => {
@@ -33,9 +33,9 @@ const ListedBooks = () => {
       const BooksWishlisted = books.filter((book) =>
         storedBookIds.includes(book.bookId)
       );
-      console.log(BooksWishlisted);
+      // console.log(BooksWishlisted);
       setWishlistedBooks(BooksWishlisted);
-      setShortDiscending(BooksWishlisted);
+      // setShortDiscending(BooksWishlisted);
     }
   }, [books]);
 

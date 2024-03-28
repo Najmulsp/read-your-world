@@ -1,4 +1,6 @@
+import { ToastContainer, toast } from 'react-toastify';
 
+// import 'react-toastify/dist/ReactToastify.css';
 
 
 const getStoredWishlistedBook = () =>{
@@ -17,7 +19,9 @@ const saveWishlistedBook = bookId =>{
     if(!exists){
         storedWishlistedBooks.push(bookId);
         localStorage.setItem('wishlisted-book', JSON.stringify(storedWishlistedBooks))
+        return toast("Books Added to wishlist");
     }
+    return toast.error("You have already added this book!");
 }
 
 export {saveWishlistedBook, getStoredWishlistedBook}
@@ -41,7 +45,13 @@ const saveReadBook = bookId =>{
     if(!exists){
         storedReadBooks.push(bookId);
         localStorage.setItem('Read-book', JSON.stringify(storedReadBooks))
+        return toast("Books Added to Read List");
+       
     }
+    
+    return toast.error("You have already read this book!");
+
+    // <ToastContainer />
 }
 
 export {saveReadBook, getStoredReadBook}

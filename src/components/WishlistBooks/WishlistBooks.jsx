@@ -1,6 +1,37 @@
 // import PropTypes from "prop-types";
 
+// import { useEffect, useState } from "react";
+// import { saveWishlistedBook } from "../../Utility/LocalStorage";
+// // import { useLoaderData } from "react-router-dom";
+
 const WishlistBooks = () => {
+//     // const books = useLoaderData();
+// const [books, setBooks] = useState([]);
+
+// useEffect(() => {
+// const storedBooks = getStoredWishlistedBook();
+// if (books.length > 0) {
+//            const BooksWishlisted = books.filter((book) =>
+//              storedBookIds.includes(book.bookId)
+//            );
+// }
+
+
+// setBooks(storedBooks);
+// console.log(books)
+// },[books])
+
+// useEffect(() => {
+//     const storedBookIds = getStoredWishlistedBook();
+//     if (books.length > 0) {
+//       const BooksWishlisted = books.filter((book) =>
+//         storedBookIds.includes(book.bookId)
+//       );
+//       // console.log(BooksWishlisted);
+//       setWishlistedBooks(BooksWishlisted);
+//       setShortDiscending(BooksWishlisted);
+//     }
+//   }, [books]);
    //{book}
     // const {image, bookName, author, tags, yearOfPublishing, publisher, category, rating} = book;
     return (
