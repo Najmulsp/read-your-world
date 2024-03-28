@@ -4,11 +4,6 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
 
     const links = <>
-            {/* <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/list">Listed Books</NavLink></li>            
-            <li><NavLink to="/pages">Pages to Read</NavLink></li> 
-            <li><NavLink to="/blog">Blog</NavLink></li>
-            <li><NavLink to="/register">Register</NavLink></li> */}
             <li><NavLink
               to="/"
               className={({ isActive }) =>
@@ -29,11 +24,11 @@ const Navbar = () => {
                 }
             >Pages to Read</NavLink></li>
             <li><NavLink
-              to="/blog"
+              to="/publish"
               className={({ isActive }) =>
               isActive ? "border border-lime-600 rounded-lg text-lime-600 font-bold py-2 px-4" : ""
                 }
-            >Blog</NavLink></li>
+            >Publish</NavLink></li>
             <li><NavLink
               to="/register"
               className={({ isActive }) =>

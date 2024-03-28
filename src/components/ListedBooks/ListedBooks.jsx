@@ -1,52 +1,68 @@
 import { useEffect, useState } from "react";
-import { Outlet, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { getStoredWishlistedBook } from "../../Utility/LocalStorage";
-// import WishlistBooks from "../WishlistBooks/WishlistBooks";
-//  import ReadBooks from "../ReadBooks/ReadBooks";
-import { Link } from "react-router-dom";
+import { getStoredReadBook } from "../../Utility/LocalStorage";
+import WishlistBooks from "../WishlistBooks/WishlistBooks";
+import ReadBooks from "../ReadBooks/ReadBooks";
+// import { Link } from "react-router-dom";
+
 const ListedBooks = () => {
   const books = useLoaderData();
 
   const [wishlistedBooks, setWishlistedBooks] = useState([]);
+  const [readBooks, setReadBooks] = useState([]);
   // const [shortDiscending, setShortDiscending] = useState([]);
-  const [tabIndex, setTabIndex] = useState(0);
+  
 
-  const handleBooksFilter = (filter) => {
-    if (filter === "all") {
-      setShortDiscending(BooksWishlisted);
-    } else if (filter === "classic") {
-      const classicBooks = BooksWishlisted.filter(
-        (book) => book.category === "Classic"
-      );
-      setShortDiscending(classicBooks);
-    } else if (filter === "fiction") {
-      const fictionBooks = BooksWishlisted.filter(
-        (book) => book.category === "Fiction"
-      );
-      setShortDiscending(fictionBooks);
-    }
-  };
+  // const handleBooksFilter = (filter) => {
+  //   if (filter === "all") {
+  //     setShortDiscending(BooksWishlisted);
+  //   } else if (filter === "classic") {
+  //     const classicBooks = BooksWishlisted.filter(
+  //       (book) => book.category === "Classic"
+  //     );
+  //     setShortDiscending(classicBooks);
+  //   } else if (filter === "fiction") {
+  //     const fictionBooks = BooksWishlisted.filter(
+  //       (book) => book.category === "Fiction"
+  //     );
+  //     setShortDiscending(fictionBooks);
+  //   }
+  // };
 
+
+  
+  // for wishList books
   useEffect(() => {
     const storedBookIds = getStoredWishlistedBook();
     if (books.length > 0) {
       const BooksWishlisted = books.filter((book) =>
         storedBookIds.includes(book.bookId)
       );
-      // console.log(BooksWishlisted);
+      
       setWishlistedBooks(BooksWishlisted);
       // setShortDiscending(BooksWishlisted);
     }
   }, [books]);
 
-  // const [image, bookName, author]  = wishlistedBooks;
+  // for read books
+  useEffect(() => {
+    const storedReadBooks = getStoredReadBook();
+    if (books.length > 0) {
+      const BooksReaded = books.filter((book) =>
+        storedReadBooks.includes(book.bookId)
+      );
+      
+      setReadBooks(BooksReaded);
+    }
+  }, [books]);
 
   return (
     <div>
       <h2 className="bg-red-50 py-6 rounded-xl text-4xl text-black font-bold text-center ">
         Listed Books route: {wishlistedBooks.length}
       </h2>
-      <div className=" w-full text-center ">
+      {/* <div className=" w-full text-center ">
         <div className="dropdown ">
           <div
             tabIndex={0}
@@ -73,12 +89,49 @@ const ListedBooks = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
 
       {/* tab from mamba ui  */}
-      
+      <div role="tablist" className="tabs tabs-lifted mt-10">
+        <input
+          type="radio"
+          name="my_tabs_2"
+          role="tab"
+          className="tab"
+          aria-label="Read Books"
+         defaultChecked
+        />
+        <div
+          role="tabpanel"
+          className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+        >
+          {/* for my books */}
+        {readBooks.map((book) => (
+        <ReadBooks key={book.bookId} book={book}></ReadBooks>
+      ))}
+        </div>
 
-      <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center  flex-nowrap  dark:text-gray-800 mt-10">
+        <input
+          type="radio"
+          name="my_tabs_2"
+          role="tab"
+          className="tab"
+          aria-label="Wishlist Books"
+          
+        />
+        <div
+          role="tabpanel"
+          className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+        >
+         {wishlistedBooks.map((book) => (
+        <WishlistBooks key={book.bookId} book={book}></WishlistBooks>
+      ))}
+        </div>
+
+       
+      </div>
+
+      {/* <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center  flex-nowrap  dark:text-gray-800 mt-10">
         <Link
           onClick={() => setTabIndex(0)}
           to=''
@@ -89,6 +142,7 @@ const ListedBooks = () => {
         <span>Read Books</span>
         </Link>
         <Link
+          
           onClick={() => setTabIndex(1)}
           to={`wishlist`}
           rel="noopener noreferrer"
@@ -98,20 +152,17 @@ const ListedBooks = () => {
         <span>Wishlist Books</span>
         </Link>
         
-      </div>
-      <Outlet></Outlet>
-      
+      </div> */}
+      {/* <Outlet></Outlet> */}
 
-      {/* {shortDiscending.map((book) => (
-        <WishlistBooks key={book.bookId} book={book}></WishlistBooks>
-      ))} */}
+      
+       
       {/* {
         shortDiscending.map(book => <ReadBooks
           key={book.bookId}
           book = {book}
           ></ReadBooks>)
       } */}
-
 
       
     </div>

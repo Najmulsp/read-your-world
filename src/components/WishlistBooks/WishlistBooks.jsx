@@ -1,49 +1,19 @@
-// import PropTypes from "prop-types";
-
-// import { useEffect, useState } from "react";
-// import { saveWishlistedBook } from "../../Utility/LocalStorage";
-// // import { useLoaderData } from "react-router-dom";
-
-const WishlistBooks = () => {
-//     // const books = useLoaderData();
-// const [books, setBooks] = useState([]);
-
-// useEffect(() => {
-// const storedBooks = getStoredWishlistedBook();
-// if (books.length > 0) {
-//            const BooksWishlisted = books.filter((book) =>
-//              storedBookIds.includes(book.bookId)
-//            );
-// }
+import PropTypes from "prop-types";
 
 
-// setBooks(storedBooks);
-// console.log(books)
-// },[books])
-
-// useEffect(() => {
-//     const storedBookIds = getStoredWishlistedBook();
-//     if (books.length > 0) {
-//       const BooksWishlisted = books.filter((book) =>
-//         storedBookIds.includes(book.bookId)
-//       );
-//       // console.log(BooksWishlisted);
-//       setWishlistedBooks(BooksWishlisted);
-//       setShortDiscending(BooksWishlisted);
-//     }
-//   }, [books]);
-   //{book}
-    // const {image, bookName, author, tags, yearOfPublishing, publisher, category, rating} = book;
+const WishlistBooks = ({book}) => {
+     const {image, bookName, author, tags, yearOfPublishing, publisher, category, rating} = book;
+    
     return (
         <div className=" lg:w-3/4 rounded-2xl m-10">
-            <h2>mui acchong</h2>
+            
           {/* this is card section  */}
-            {/* <div className="hero  bg-base-200 ">
+              <div className="hero  bg-base-200 ">
                 <div className="hero-content  flex-col lg:flex-row gap-16">
-                    <img src={book.image} className="max-w-sm rounded-lg shadow-2xl h-96"  />
+                    <img src={image} className="max-w-sm rounded-lg shadow-2xl h-96"  />
                     <div>
-                        <h1 className="text-5xl font-bold">{book.bookName}</h1>
-                        <p className="py-6">By: {book.author} </p> 
+                        <h1 className="text-5xl font-bold">{bookName}</h1>
+                        <p className="py-6">By: {author} </p> 
                         <h1 className="text-left space-x-8 mb-4">
                   <span className="font-bold ">Tags</span>
               <span className="bg-red-50 p-2 rounded-3xl text-lime-600 font-semibold">{tags[0]}</span>
@@ -77,27 +47,19 @@ const WishlistBooks = () => {
                 <span></span>
               </p>
                 </h1>
-                       
-                       
-                        
                         <div className="flex gap-3 lg:gap-10 mt-4">
                             <button className="btn bg-cyan-100 rounded-3xl text-cyan-800 ">Category: {category}</button>
                             <button className="btn bg-rose-100 rounded-3xl text-red-800">Rating: {rating}</button>
                             <button className="btn bg-lime-500 rounded-3xl text-white">View Details</button>
                         </div>
-
-
                     </div>
                 </div>
-            </div> */}
-    
-
+            </div> 
         </div>
     );
 };
 
-
-// WishlistBooks.propTypes = {
-//     book: PropTypes.array,
-//   };
+ WishlistBooks.propTypes = {
+     book: PropTypes.array,
+  };
 export default WishlistBooks;

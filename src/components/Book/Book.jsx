@@ -33,6 +33,6 @@ const Book = ({ book }) => {
 };
 
 Book.propTypes = {
-  book: PropTypes.array,
+  book: PropTypes.object,
 };
 export default Book;

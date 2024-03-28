@@ -12,11 +12,11 @@ import Home from './components/Home/Home';
 import ListedBooks from './components/ListedBooks/ListedBooks';
 import PagesToRead from './components/PagesToRead/PagesToRead';
 import Register from './components/Register/Register';
-import Blog from './components/Blog/Blog';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import BookDetails from './components/BookDetails/BookDetails';
 import WishlistBooks from './components/WishlistBooks/WishlistBooks';
 import ReadBooks from './components/ReadBooks/ReadBooks';
+import Publish from './components/Publish/Publish';
 
 const router = createBrowserRouter([
   {
@@ -48,10 +48,11 @@ const router = createBrowserRouter([
       {
         path: "/pages",
         element: <PagesToRead></PagesToRead>,
+        loader: () => fetch('/Books.json'),
       },
       {
-        path: "/blog",
-        element: <Blog></Blog>,
+        path: "/publish",
+        element: <Publish></Publish>,
       },
       {
         path: "/register",
