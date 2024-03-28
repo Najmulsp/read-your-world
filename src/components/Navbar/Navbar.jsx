@@ -30,11 +30,11 @@ const Navbar = () => {
                 }
             >Publish</NavLink></li>
             <li><NavLink
-              to="/register"
+              to="/author"
               className={({ isActive }) =>
               isActive ? "border border-lime-600 rounded-lg text-lime-600 font-bold py-2 px-4" : ""
                 }
-            >Register</NavLink></li>
+            >Authors</NavLink></li>
     </>
 
     return (

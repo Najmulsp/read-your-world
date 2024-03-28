@@ -8,10 +8,10 @@ const ReadBooks = ({book}) => {
     
     
     return (
-        <div className="mt-10">
+        <div className="mt-10 lg:w-3/4">
 
             {/* this is card section */}
-                <div className="hero  bg-base-200 ">
+                <div className="hero  bg-base-200 rounded-2xl">
                 <div className="hero-content  flex-col lg:flex-row gap-16">
                  <img src={image} className="max-w-sm rounded-lg shadow-2xl h-96"  /> 
                     <div>
@@ -23,11 +23,12 @@ const ReadBooks = ({book}) => {
               <span className="bg-red-50 p-2 rounded-3xl text-lime-600 font-semibold">{tags[1]}</span>
 
                 <div className="flex flex-col lg:flex-row gap-12 lg:mt-6">
-                    <div className="flex gap-4 ">
+                    <div className="flex gap-4">
                      <p className="">
-                        <svg width="18" height="21" viewBox="0 0 18 21" fill="none"  xmlns="http://www.w3.org/2000/svg">
+                     
+                         <svg width="18" height="21" viewBox="0 0 18 21" fill="none"  xmlns="http://www.w3.org/2000/svg">
                         <path d="M16.5 9C16.5 16.142 9 20.25 9 20.25C9 20.25 1.5 16.142 1.5 9C1.5 7.                        01088 2.29018 5.10322 3.6967 3.6967C5.10322 2.29018 7.01088 1.5 9 1.5C10.9891 1.                        5 12.8968 2.29018 14.3033 3.6967C15.7098 5.10322 16.5 7.01088 16.5 9Z"                      stroke="#424242" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                        </svg> 
                      </p>
                      <p>Year of Publishing: {yearOfPublishing}</p>
                     </div>

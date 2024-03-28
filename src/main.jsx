@@ -11,12 +11,12 @@ import Root from './components/Root/Root';
 import Home from './components/Home/Home';
 import ListedBooks from './components/ListedBooks/ListedBooks';
 import PagesToRead from './components/PagesToRead/PagesToRead';
-import Register from './components/Register/Register';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import BookDetails from './components/BookDetails/BookDetails';
 import WishlistBooks from './components/WishlistBooks/WishlistBooks';
 import ReadBooks from './components/ReadBooks/ReadBooks';
 import Publish from './components/Publish/Publish';
+import Authors from './components/Authors/Authors';
 
 const router = createBrowserRouter([
   {
@@ -55,8 +55,8 @@ const router = createBrowserRouter([
         element: <Publish></Publish>,
       },
       {
-        path: "/register",
-        element: <Register></Register>,
+        path: "/author",
+        element: <Authors ></Authors>,
       },
       {
         path: "/book/:bookId",

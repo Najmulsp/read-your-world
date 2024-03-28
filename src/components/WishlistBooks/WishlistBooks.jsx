@@ -5,10 +5,10 @@ const WishlistBooks = ({book}) => {
      const {image, bookName, author, tags, yearOfPublishing, publisher, category, rating} = book;
     
     return (
-        <div className=" lg:w-3/4 rounded-2xl m-10">
+        <div className=" lg:w-3/4  m-10">
             
           {/* this is card section  */}
-              <div className="hero  bg-base-200 ">
+              <div className="hero  bg-base-200 rounded-2xl">
                 <div className="hero-content  flex-col lg:flex-row gap-16">
                     <img src={image} className="max-w-sm rounded-lg shadow-2xl h-96"  />
                     <div>
